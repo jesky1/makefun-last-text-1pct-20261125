@@ -54,6 +54,8 @@ test("gate rejects invalid texts and accepts a 200-char one", async () => {
     ["no letters", "12345 !!! ???"],
     ["a link", "see this http://example.com now please"],
     ["too few words", "dying now bye"],
+    ["repeated word spam", "bye bye bye bye now please"],
+    ["no first-person voice", "The phone is dying now, goodbye cruel world today"],
   ];
   for (const [label, text] of rejected) {
     assert.equal(isGateOk(text).ok, false, `${label} must be rejected`);

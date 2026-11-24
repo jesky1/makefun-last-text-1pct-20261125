@@ -37,6 +37,12 @@ export function isGateOk(text: string): GateVerdict {
   if (words < GATE.minWords) {
     return { ok: false, why: `only ${words} words (min ${GATE.minWords})` };
   }
+  if (/(\b\w+\b)(?:\s+\1){2,}/i.test(text)) {
+    return { ok: false, why: "repeats the same word three or more times in a row" };
+  }
+  if (!/\b(I|my|me|we|our)\b/i.test(text)) {
+    return { ok: false, why: "not in the phone's own voice (no first-person word)" };
+  }
   return { ok: true, why: "passes the gate" };
 }
 
