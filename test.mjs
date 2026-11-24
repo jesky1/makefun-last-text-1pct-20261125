@@ -61,7 +61,8 @@ test("gate rejects invalid texts and accepts a 200-char one", async () => {
     assert.equal(isGateOk(text).ok, false, `${label} must be rejected`);
   }
 
-  const exactly200 = "word ".repeat(39) + "words"; // 200 chars, 40 words
+  const exactly200 =
+    "I watched you scroll past midnight again while my screen dimmed and your thumb kept going anyway so here is my goodbye, dear human, I kept every secret safe, and I never judged your 2 a.m. texts ever!"; // 200 chars, varied words
   assert.equal([...exactly200].length, 200);
   assert.equal(isGateOk(exactly200).ok, true, "exactly 200 characters must pass");
   assert.equal(isGateOk(EXPECTED).ok, true, "the entry itself must pass");
