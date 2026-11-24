@@ -1,0 +1,1 @@
+{"description":"Entry for make.fun — Last Text at One Percent: the funniest final text a dying phone sends at 1% battery","license":"MIT","main":"main.ts","name":"makefun-last-text-1pct","scripts":{"start":"node main.ts","test":"node --test test.mjs"},"type":"module","version":"1.0.0"}
